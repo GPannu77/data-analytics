@@ -2,7 +2,7 @@
 
 Hi, I'm Gurnoor. This repository collects my data analytics projects, from cleaning messy raw data to exploring it and turning it into insights.
 
-**Skills:** SQL (MySQL) | Data Cleaning | Exploratory Data Analysis | [Excel] | [Tableau / Power BI] | [Python]
+**Skills:** SQL (MySQL) | Data Cleaning | Exploratory Data Analysis | Power BI | Python | Pandas
 
 ## Repository Structure
 
@@ -23,8 +23,8 @@ Each project folder has its own README covering the question, the data, the meth
 
 - **Databases:** MySQL, MySQL Workbench
 - **Version control:** Git, GitHub
-- **Visualization:** [Tableau / Power BI / Excel]
-- **Programming:** [Python, pandas]
+- **Visualization:** Power BI
+- **Programming:** Python, Pandas
 
 ## Contact
 

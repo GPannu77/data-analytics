@@ -146,7 +146,6 @@ The raw data had duplicate rows, inconsistent category names, text-formatted dat
 
 ## Dataset
 
-- **Source:** [add link, e.g. Kaggle]
 - **Time period:** March 11, 2020 to March 6, 2023
 - **Size:** 2,361 raw rows, 9 columns
 
@@ -274,4 +273,4 @@ Questions explored:
 
 ## Contact
 
-[Gurnoor Pannu] [linkedin.com/in/gurnoorpannu77 |] | [gurnoor4771@gmail.com]
+Gurnoor Pannu | linkedin.com/in/gurnoorpannu77 | gurnoor4771@gmail.com

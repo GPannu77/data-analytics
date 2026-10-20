@@ -165,3 +165,11 @@ WHERE total_laid_off IS NULL AND percentage_laid_off IS NULL;
 ALTER TABLE layoffs_staging2
 DROP COLUMN row_num;
 
+SELECT funds_raised_millions
+FROM layoffs_staging2;
+
+ALTER TABLE layoffs_staging2
+MODIFY funds_raised_millions DECIMAL(10, 2);
+
+ALTER TABLE layoffs_staging2
+MODIFY percentage_laid_off DECIMAL(6,4);

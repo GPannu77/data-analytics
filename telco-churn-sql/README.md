@@ -30,7 +30,10 @@ telco-churn-sql/
 │   ├── raw/
 │   │   └── telco_churn.csv
 │   └── cleaned/
-│       └── telco_churn_cleaned.csv
+│       ├── telco_churn_cleaned.csv
+│       └── churn_summary.csv
+├── powerbi/
+│   └── telco_churn_dashboard.pbix
 └── images/
 ```
 
@@ -40,6 +43,8 @@ telco-churn-sql/
 | `sql/02_exploratory_analysis.sql` | Churn by segment, revenue impact, advanced queries, risk score, and the `churn_summary` view |
 | `data/raw/telco_churn.csv` | The original dataset |
 | `data/cleaned/telco_churn_cleaned.csv` | The cleaned table exported from MySQL (7,032 rows) |
+| `data/cleaned/churn_summary.csv` | The `churn_summary` view exported from MySQL (35 rows), used as the Power BI data source |
+| `powerbi/telco_churn_dashboard.pbix` | Power BI dashboard built from `churn_summary.csv` |
 
 *GitHub shows a "file too large" message instead of a table preview for the CSVs. They can still be downloaded with the Raw button.*
 
@@ -62,6 +67,8 @@ All cleaning is done on a copy (`telco_staging`), so the imported raw table is n
 | Validation | Row count, unique IDs, churn counts, and group totals checked against expected values |
 
 The "No internet service" value in `OnlineSecurity`, `OnlineBackup`, `DeviceProtection`, `TechSupport`, `StreamingTV`, and `StreamingMovies` was kept on purpose, so customers without internet can be analyzed separately from customers who have internet but skip an add-on.
+
+![Validation results](images/validation_results.png)
 
 ---
 
@@ -160,6 +167,21 @@ These are suggestions based on the patterns above. The data shows what goes with
 `churn_summary` is a view with one row per contract, internet service, and tenure group (35 rows), showing customers, churned customers, churn rate, monthly revenue, and churned revenue. It is designed to be read by a dashboard tool such as Power BI or Tableau.
 
 ![Churn summary view](images/churn_summary_view.png)
+
+---
+
+## Power BI Dashboard
+
+The `churn_summary` view was exported to CSV and loaded into Power BI. Churn rate is a measure (total churned divided by total customers), not an average of the row-level percentages, so the overall figure matches the SQL result of 26.58%.
+
+![Power BI dashboard](images/dashboard.png)
+
+- **Tenure:** churn falls steadily from 47.68% in the first year to 9.51% after four years.
+- **Contract:** month-to-month customers churn at 42.71%, against 11.28% (one year) and 2.85% (two year).
+- **Internet service:** fiber optic customers churn at 41.89%, against 19.00% for DSL and 7.43% for customers without internet.
+- **Revenue lost to churn:** the share of monthly revenue lost is 46.97% for month-to-month contracts and 40.35% for fiber optic, compared with 30.53% overall.
+
+The `.pbix` file is in `powerbi/`.
 
 ---
 

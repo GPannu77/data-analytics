@@ -63,8 +63,6 @@ All cleaning is done on a copy (`telco_staging`), so the imported raw table is n
 
 The "No internet service" value in `OnlineSecurity`, `OnlineBackup`, `DeviceProtection`, `TechSupport`, `StreamingTV`, and `StreamingMovies` was kept on purpose, so customers without internet can be analyzed separately from customers who have internet but skip an add-on.
 
-![Validation results](images/validation_results.png)
-
 ---
 
 ## Key Findings
